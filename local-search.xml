@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Graph-Corloring</title>
+    <link href="/2024/10/13/Graph-Corloring/"/>
+    <url>/2024/10/13/Graph-Corloring/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Graph-Corloring"><a href="#Graph-Corloring" class="headerlink" title="Graph-Corloring"></a>Graph-Corloring</h1><p>有一个无向图G，如何涂色，使得无向图两个相邻节点颜色不同，使用的颜色数最少。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>图论</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>个人博客搭建流程（github+hexo）</title>
     <link href="/2024/10/12/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B%EF%BC%88github-hexo%EF%BC%89/"/>
     <url>/2024/10/12/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B%EF%BC%88github-hexo%EF%BC%89/</url>
