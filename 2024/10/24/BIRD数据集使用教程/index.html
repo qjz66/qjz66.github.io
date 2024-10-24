@@ -19,22 +19,31 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Go环境搭建本篇文章写了linux下go语言环境的安装配置以及如何写一个简单的go程序。 下载go压缩包查看架构uname -i在go官方网站下载go压缩包。如果是x86_64则选择goxxx.linux-amd64.tar.gz其余的根据架构选择对应的版本。本文以go1.23.2.linux-amd64.tar.gz为例将压缩包复制到&#x2F;usr&#x2F;local&#x2F;目录下,或">
+    <meta name="description" content="使用下载数据集在https:&#x2F;&#x2F;bird-bench.github.io&#x2F;中下载dev set并解压。 克隆仓库创建项目文件夹，如mkdir xxx 进入项目目录并执行git init初始化 git init和仓库进行关联git remote add -f origin https:&#x2F;&#x2F;github.com&#x2F;AlibabaResearch&#x2F;DAMO-ConvAI.git开启稀疏检出git conf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux服务器上的Go环境搭建">
-<meta property="og:url" content="http://example.com/2024/10/24/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84Go%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:title" content="BIRD数据集使用教程">
+<meta property="og:url" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Zhoxe的博客">
-<meta property="og:description" content="Go环境搭建本篇文章写了linux下go语言环境的安装配置以及如何写一个简单的go程序。 下载go压缩包查看架构uname -i在go官方网站下载go压缩包。如果是x86_64则选择goxxx.linux-amd64.tar.gz其余的根据架构选择对应的版本。本文以go1.23.2.linux-amd64.tar.gz为例将压缩包复制到&#x2F;usr&#x2F;local&#x2F;目录下,或">
+<meta property="og:description" content="使用下载数据集在https:&#x2F;&#x2F;bird-bench.github.io&#x2F;中下载dev set并解压。 克隆仓库创建项目文件夹，如mkdir xxx 进入项目目录并执行git init初始化 git init和仓库进行关联git remote add -f origin https:&#x2F;&#x2F;github.com&#x2F;AlibabaResearch&#x2F;DAMO-ConvAI.git开启稀疏检出git conf">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-24T09:06:23.000Z">
-<meta property="article:modified_time" content="2024-10-24T11:03:10.846Z">
+<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/3.png">
+<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/2.png">
+<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/5.png">
+<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/6.png">
+<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/8.png">
+<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/7.png">
+<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/9.png">
+<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/10.png">
+<meta property="article:published_time" content="2024-10-24T11:09:52.000Z">
+<meta property="article:modified_time" content="2024-10-24T11:22:36.734Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="go">
+<meta property="article:tag" content="BIRD">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/3.png">
   
   
   
-  <title>linux服务器上的Go环境搭建 - Zhoxe的博客</title>
+  <title>BIRD数据集使用教程 - Zhoxe的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +222,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="linux服务器上的Go环境搭建"></span>
+            <span id="subtitle" data-typed-text="BIRD数据集使用教程"></span>
           
         </div>
 
@@ -224,8 +233,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-24 17:06" pubdate>
-          2024年10月24日 下午
+        <time datetime="2024-10-24 19:09" pubdate>
+          2024年10月24日 晚上
         </time>
       </span>
     
@@ -236,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          384 字
+          532 字
         
       </span>
     
@@ -247,7 +256,7 @@
         
         
         
-          4 分钟
+          5 分钟
         
       </span>
     
@@ -293,22 +302,23 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">linux服务器上的Go环境搭建</h1>
+            <h1 id="seo-header">BIRD数据集使用教程</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Go环境搭建"><a href="#Go环境搭建" class="headerlink" title="Go环境搭建"></a>Go环境搭建</h1><p>本篇文章写了linux下go语言环境的安装配置以及如何写一个简单的go程序。</p>
-<h2 id="下载go压缩包"><a href="#下载go压缩包" class="headerlink" title="下载go压缩包"></a>下载go压缩包</h2><p>查看架构<br><br><code>uname -i</code><br><br>在<a target="_blank" rel="noopener" href="https://golang.google.cn/dl/">go官方网站</a>下载go压缩包。如果是<code>x86_64</code>则选择<code>goxxx.linux-amd64.tar.gz</code>其余的根据架构选择对应的版本。本文以<em>go1.23.2.linux-amd64.tar.gz</em>为例<br><br>将压缩包复制到&#x2F;usr&#x2F;local&#x2F;目录下,或者可以用以下代码直接下载到指定目录。<br></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd <span class="hljs-regexp">/usr/</span>local<br>wget https:<span class="hljs-regexp">//g</span>olang.google.cn<span class="hljs-regexp">/dl/g</span>o1.<span class="hljs-number">23.2</span>.linux-amd64.tar.gz<br></code></pre></td></tr></table></figure>
-<p>将压缩包解压缩<br><br><code>tar -zxvf go1.23.2.linux-amd64.tar.gz</code></p>
-<h2 id="进行go环境的配置"><a href="#进行go环境的配置" class="headerlink" title="进行go环境的配置"></a>进行go环境的配置</h2><h3 id="GOROOT和PATH"><a href="#GOROOT和PATH" class="headerlink" title="GOROOT和PATH"></a>GOROOT和PATH</h3><p>编辑<code>~/.profile</code>文件，在末尾加上<br></p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">GOROOT</span>=/usr/local/go<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$PATH</span>:$GOROOT/bin<br></code></pre></td></tr></table></figure>
-<p>GOROOT是安装go语言包的地方，也就是&#x2F;usr&#x2F;local&#x2F;go。PATH则是go可执行程序所在的地方。1.14版本后就不用在GOPATH下放置代码了，直接用默认的即可。<br>保存更改<br><br><code>source ~/.profile</code><br><br>验证go安装并配置成功<br><br><code>go version</code><br><br>出现如下字样则安装成功<br><br><code>go version go1.23.2 linux/amd64</code></p>
-<h3 id="GOPROXY"><a href="#GOPROXY" class="headerlink" title="GOPROXY"></a>GOPROXY</h3><p>GOPROXY是下载包的代理，更换GOPROXY为国内网站：<code>https://goproxy.cn</code><br><br><code>go env -w GOPROXY=https://goproxy.cn,direct</code></p>
-<h2 id="第一个go程序"><a href="#第一个go程序" class="headerlink" title="第一个go程序"></a>第一个go程序</h2><p>创建一个目录<code>myDemo</code><br><br>在目录下<code>go mod init myDemo(项目名称)</code><br><br>编写go程序，在项目根目录执行<br><br><code>go run main.go</code>或者<code>go build -o 可执行文件名</code>即可</p>
-<h2 id="跨平台编译"><a href="#跨平台编译" class="headerlink" title="跨平台编译"></a>跨平台编译</h2><p>在windows上进行开发linux上的程序，可以使用跨平台编译。设置环境变量。<br><br>使用cmd执行<br></p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-keyword">SET</span> CGO_ENABLED=0  <span class="hljs-comment">// 禁用CGO</span><br><span class="hljs-keyword">SET</span> <span class="hljs-comment">GOOS=linux</span>  // 目标平台是<span class="hljs-comment">linux</span><br><span class="hljs-keyword">SET</span> <span class="hljs-comment">GOARCH=amd64</span>  // 目标处理器架构是<span class="hljs-comment">amd64</span><br></code></pre></td></tr></table></figure>
+                <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h2><p>在<code>https://bird-bench.github.io/</code>中下载<code>dev set</code>并解压。</p>
+<h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><p>创建项目文件夹，如<br><br><code>mkdir xxx </code><br><br>进入项目目录并执行git init初始化<br><br><code> git init</code><br>和仓库进行关联<br><br><code>git remote add -f origin https://github.com/AlibabaResearch/DAMO-ConvAI.git</code><br><br>开启稀疏检出<br><br><code>git config core.sparsecheckout true</code><br><br>sparse-checkout文件里写入”bird”<br><br><code> echo &quot;bird&quot; &gt;&gt; .git/info/sparse-checkout</code><br><br>拉取远程仓库<br><br><code>git pull origin main</code><br>以上命令如报错可尝试用sudo</p>
+<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>将text-to-sql生成的sql语句以json格式放入<code>./llm/exp_result/turbo_output_kg/predict_dev.json</code>(如果为without knowledge则放<code>./llm/exp_result/turbo_output/predict_dev.json</code>)格式要与该json文件中给的例子相同，如下图所示，使用<code>&#39;\t----- bird -----\t&#39;</code>分隔sql语句与数据库名称。<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/3.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><br>将解压的<code>dev set</code>中的<code>dev.json</code>、<code>dev_gold.sql</code>、<code>dev_databases</code>存到<code>./llm/data/</code>目录下<br><br>安装依赖<br><code>pip install func_timeout</code></p>
+<h2 id="修改脚本"><a href="#修改脚本" class="headerlink" title="修改脚本"></a>修改脚本</h2><p>因为不需要ves，将<code>./llm/run/run_evaluation.sh</code>脚本中关于ves的部分注释掉即可。</p>
+<h2 id="启动EX-Evaluation"><a href="#启动EX-Evaluation" class="headerlink" title="启动EX Evaluation"></a>启动EX Evaluation</h2><p>在<code>./llm</code>目录下运行<code>sh ./run/run_evaluation.sh</code>即可。<br>得到结果如下图所示。<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/2.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h1 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h1><p>从如下代码可以看出计算逻辑,是以生成的sql语句和真实sql语句执行结果的集合相等的概率作为指标<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/5.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/6.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h1 id="测试gpt的EX执行准确率"><a href="#测试gpt的EX执行准确率" class="headerlink" title="测试gpt的EX执行准确率"></a>测试gpt的EX执行准确率</h1><h2 id="下载资源"><a href="#下载资源" class="headerlink" title="下载资源"></a>下载资源</h2><p>参照<code>BIRD使用教程</code>下载<code>dev set</code>并将解压的东西放到相应的地方</p>
+<h2 id="获取api-key"><a href="#获取api-key" class="headerlink" title="获取api key"></a>获取api key</h2><p>在<code>https://platform.openai.com/api-keys</code>中创建自己的api key并将其复制到<code>./llm/run/run_gpt.sh</code>的<code>YOUR_API_KEY</code>中</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p><code>pip install openai==0.28 backoff pandas sqlparse tqdm</code><br><br>在<code>./run/run_gpt.sh</code>中将启动时传入的模型参数改为engine2,即为<code>text-davinci-003</code>(要测gpt-3.5-turbo则将engine选为engine3)<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/8.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><br>挂梯子，如果是linux要手动配置代理,详情参考<a href>linux服务器clash教程</a></p>
+<h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>切换到目录<code>./llm</code>执行<code>sh ./run/run_gpt.sh</code>即可生成预测的sql语句。<br><br>执行<code>sh ./run/run_evaluation.sh</code>即可获得text-davinci-003模型 text-to-sql的EX准确率如下图所示。<br><br>text-davinci-003<br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/7.png" srcset="/img/loading.gif" lazyload alt="alt text"><br>获得gpt-3.5-turbo的EX准确率如下<br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/9.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h1 id="对照"><a href="#对照" class="headerlink" title="对照"></a>对照</h1><p>与论文<code>Understanding the Effects of Noise in Text-to-SQL: An Examination of the BIRD-Bench Benchmark</code>中使用不同训练方法得到的准确率作对比。<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/10.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><br>可以发现准确率比较接近。可以看出text-davinci-003在text-to-sql方面准确率更高。</p>
+
                 
               </div>
             
@@ -341,7 +351,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/go/" class="print-no-link">#go</a>
+        <a href="/tags/BIRD/" class="print-no-link">#BIRD</a>
       
     </div>
   
@@ -353,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>linux服务器上的Go环境搭建</div>
-      <div>http://example.com/2024/10/24/linux服务器上的Go环境搭建/</div>
+      <div>BIRD数据集使用教程</div>
+      <div>http://example.com/2024/10/24/BIRD数据集使用教程/</div>
     </div>
     <div class="license-meta">
       
@@ -398,18 +408,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="BIRD数据集使用教程">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">BIRD数据集使用教程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/16/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5%E6%95%99%E7%A8%8B/" title="搭建个人网页教程">
-                        <span class="hidden-mobile">搭建个人网页教程</span>
+                      <a href="/2024/10/24/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84Go%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="linux服务器上的Go环境搭建">
+                        <span class="hidden-mobile">linux服务器上的Go环境搭建</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

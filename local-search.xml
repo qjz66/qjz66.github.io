@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>BIRD数据集使用教程</title>
+    <link href="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <url>/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h2><p>在<code>https://bird-bench.github.io/</code>中下载<code>dev set</code>并解压。</p><h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><p>创建项目文件夹，如<br><br><code>mkdir xxx </code><br><br>进入项目目录并执行git init初始化<br><br><code> git init</code><br>和仓库进行关联<br><br><code>git remote add -f origin https://github.com/AlibabaResearch/DAMO-ConvAI.git</code><br><br>开启稀疏检出<br><br><code>git config core.sparsecheckout true</code><br><br>sparse-checkout文件里写入”bird”<br><br><code> echo &quot;bird&quot; &gt;&gt; .git/info/sparse-checkout</code><br><br>拉取远程仓库<br><br><code>git pull origin main</code><br>以上命令如报错可尝试用sudo</p><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>将text-to-sql生成的sql语句以json格式放入<code>./llm/exp_result/turbo_output_kg/predict_dev.json</code>(如果为without knowledge则放<code>./llm/exp_result/turbo_output/predict_dev.json</code>)格式要与该json文件中给的例子相同，如下图所示，使用<code>&#39;\t----- bird -----\t&#39;</code>分隔sql语句与数据库名称。<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/3.png" alt="alt text"><br><br>将解压的<code>dev set</code>中的<code>dev.json</code>、<code>dev_gold.sql</code>、<code>dev_databases</code>存到<code>./llm/data/</code>目录下<br><br>安装依赖<br><code>pip install func_timeout</code></p><h2 id="修改脚本"><a href="#修改脚本" class="headerlink" title="修改脚本"></a>修改脚本</h2><p>因为不需要ves，将<code>./llm/run/run_evaluation.sh</code>脚本中关于ves的部分注释掉即可。</p><h2 id="启动EX-Evaluation"><a href="#启动EX-Evaluation" class="headerlink" title="启动EX Evaluation"></a>启动EX Evaluation</h2><p>在<code>./llm</code>目录下运行<code>sh ./run/run_evaluation.sh</code>即可。<br>得到结果如下图所示。<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/2.png" alt="alt text"></p><h1 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h1><p>从如下代码可以看出计算逻辑,是以生成的sql语句和真实sql语句执行结果的集合相等的概率作为指标<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/5.png" alt="alt text"><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/6.png" alt="alt text"></p><h1 id="测试gpt的EX执行准确率"><a href="#测试gpt的EX执行准确率" class="headerlink" title="测试gpt的EX执行准确率"></a>测试gpt的EX执行准确率</h1><h2 id="下载资源"><a href="#下载资源" class="headerlink" title="下载资源"></a>下载资源</h2><p>参照<code>BIRD使用教程</code>下载<code>dev set</code>并将解压的东西放到相应的地方</p><h2 id="获取api-key"><a href="#获取api-key" class="headerlink" title="获取api key"></a>获取api key</h2><p>在<code>https://platform.openai.com/api-keys</code>中创建自己的api key并将其复制到<code>./llm/run/run_gpt.sh</code>的<code>YOUR_API_KEY</code>中</p><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p><code>pip install openai==0.28 backoff pandas sqlparse tqdm</code><br><br>在<code>./run/run_gpt.sh</code>中将启动时传入的模型参数改为engine2,即为<code>text-davinci-003</code>(要测gpt-3.5-turbo则将engine选为engine3)<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/8.png" alt="alt text"><br><br>挂梯子，如果是linux要手动配置代理,详情参考<a href>linux服务器clash教程</a></p><h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>切换到目录<code>./llm</code>执行<code>sh ./run/run_gpt.sh</code>即可生成预测的sql语句。<br><br>执行<code>sh ./run/run_evaluation.sh</code>即可获得text-davinci-003模型 text-to-sql的EX准确率如下图所示。<br><br>text-davinci-003<br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/7.png" alt="alt text"><br>获得gpt-3.5-turbo的EX准确率如下<br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/9.png" alt="alt text"></p><h1 id="对照"><a href="#对照" class="headerlink" title="对照"></a>对照</h1><p>与论文<code>Understanding the Effects of Noise in Text-to-SQL: An Examination of the BIRD-Bench Benchmark</code>中使用不同训练方法得到的准确率作对比。<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/10.png" alt="alt text"><br><br>可以发现准确率比较接近。可以看出text-davinci-003在text-to-sql方面准确率更高。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>教程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>BIRD</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>linux服务器上的Go环境搭建</title>
     <link href="/2024/10/24/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84Go%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <url>/2024/10/24/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84Go%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
