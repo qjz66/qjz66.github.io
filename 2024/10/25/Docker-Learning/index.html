@@ -19,31 +19,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="使用下载数据集在https:&#x2F;&#x2F;bird-bench.github.io&#x2F;中下载dev set并解压。 克隆仓库创建项目文件夹，如mkdir xxx 进入项目目录并执行git init初始化 git init和仓库进行关联git remote add -f origin https:&#x2F;&#x2F;github.com&#x2F;AlibabaResearch&#x2F;DAMO-ConvAI.git开启稀疏检出git conf">
+    <meta name="description" content="Docker-Learning这篇文章记录了学习的Docker知识。 Docker有用小命令docker ps列出运行中的进程docker logs 容器ID打印容器日志 Docker概念 Docker镜像：用于创建Docker容器的模板，可以理解为一个静态定义的操作系统。 Docker容器：Docker镜像运行的一个实例。 Docker客户端：与Docker守护进程通信。 Docker Host">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BIRD数据集使用教程">
-<meta property="og:url" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:title" content="Docker-Learning">
+<meta property="og:url" content="http://example.com/2024/10/25/Docker-Learning/index.html">
 <meta property="og:site_name" content="Zhoxe的博客">
-<meta property="og:description" content="使用下载数据集在https:&#x2F;&#x2F;bird-bench.github.io&#x2F;中下载dev set并解压。 克隆仓库创建项目文件夹，如mkdir xxx 进入项目目录并执行git init初始化 git init和仓库进行关联git remote add -f origin https:&#x2F;&#x2F;github.com&#x2F;AlibabaResearch&#x2F;DAMO-ConvAI.git开启稀疏检出git conf">
+<meta property="og:description" content="Docker-Learning这篇文章记录了学习的Docker知识。 Docker有用小命令docker ps列出运行中的进程docker logs 容器ID打印容器日志 Docker概念 Docker镜像：用于创建Docker容器的模板，可以理解为一个静态定义的操作系统。 Docker容器：Docker镜像运行的一个实例。 Docker客户端：与Docker守护进程通信。 Docker Host">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/3.png">
-<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/2.png">
-<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/5.png">
-<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/6.png">
-<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/8.png">
-<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/7.png">
-<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/9.png">
-<meta property="og:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/10.png">
-<meta property="article:published_time" content="2024-10-24T11:09:52.000Z">
-<meta property="article:modified_time" content="2024-10-24T11:22:36.734Z">
+<meta property="article:published_time" content="2024-10-25T03:04:15.000Z">
+<meta property="article:modified_time" content="2024-10-25T04:05:11.019Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="BIRD">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/3.png">
   
   
   
-  <title>BIRD数据集使用教程 - Zhoxe的博客</title>
+  <title>Docker-Learning - Zhoxe的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="BIRD数据集使用教程"></span>
+            <span id="subtitle" data-typed-text="Docker-Learning"></span>
           
         </div>
 
@@ -233,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-24 19:09" pubdate>
-          2024年10月24日 晚上
+        <time datetime="2024-10-25 11:04" pubdate>
+          2024年10月25日 上午
         </time>
       </span>
     
@@ -245,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          532 字
+          339 字
         
       </span>
     
@@ -256,7 +247,7 @@
         
         
         
-          5 分钟
+          3 分钟
         
       </span>
     
@@ -302,22 +293,35 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">BIRD数据集使用教程</h1>
+            <h1 id="seo-header">Docker-Learning</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h2><p>在<code>https://bird-bench.github.io/</code>中下载<code>dev set</code>并解压。</p>
-<h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><p>创建项目文件夹，如<br><br><code>mkdir xxx </code><br><br>进入项目目录并执行git init初始化<br><br><code> git init</code><br>和仓库进行关联<br><br><code>git remote add -f origin https://github.com/AlibabaResearch/DAMO-ConvAI.git</code><br><br>开启稀疏检出<br><br><code>git config core.sparsecheckout true</code><br><br>sparse-checkout文件里写入”bird”<br><br><code> echo &quot;bird&quot; &gt;&gt; .git/info/sparse-checkout</code><br><br>拉取远程仓库<br><br><code>git pull origin main</code><br>以上命令如报错可尝试用sudo</p>
-<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>将text-to-sql生成的sql语句以json格式放入<code>./llm/exp_result/turbo_output_kg/predict_dev.json</code>(如果为without knowledge则放<code>./llm/exp_result/turbo_output/predict_dev.json</code>)格式要与该json文件中给的例子相同，如下图所示，使用<code>&#39;\t----- bird -----\t&#39;</code>分隔sql语句与数据库名称。<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/3.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><br>将解压的<code>dev set</code>中的<code>dev.json</code>、<code>dev_gold.sql</code>、<code>dev_databases</code>存到<code>./llm/data/</code>目录下<br><br>安装依赖<br><code>pip install func_timeout</code></p>
-<h2 id="修改脚本"><a href="#修改脚本" class="headerlink" title="修改脚本"></a>修改脚本</h2><p>因为不需要ves，将<code>./llm/run/run_evaluation.sh</code>脚本中关于ves的部分注释掉即可。</p>
-<h2 id="启动EX-Evaluation"><a href="#启动EX-Evaluation" class="headerlink" title="启动EX Evaluation"></a>启动EX Evaluation</h2><p>在<code>./llm</code>目录下运行<code>sh ./run/run_evaluation.sh</code>即可。<br>得到结果如下图所示。<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/2.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
-<h1 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h1><p>从如下代码可以看出计算逻辑,是以生成的sql语句和真实sql语句执行结果的集合相等的概率作为指标<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/5.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/6.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
-<h1 id="测试gpt的EX执行准确率"><a href="#测试gpt的EX执行准确率" class="headerlink" title="测试gpt的EX执行准确率"></a>测试gpt的EX执行准确率</h1><h2 id="下载资源"><a href="#下载资源" class="headerlink" title="下载资源"></a>下载资源</h2><p>参照<code>BIRD使用教程</code>下载<code>dev set</code>并将解压的东西放到相应的地方</p>
-<h2 id="获取api-key"><a href="#获取api-key" class="headerlink" title="获取api key"></a>获取api key</h2><p>在<code>https://platform.openai.com/api-keys</code>中创建自己的api key并将其复制到<code>./llm/run/run_gpt.sh</code>的<code>YOUR_API_KEY</code>中</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p><code>pip install openai==0.28 backoff pandas sqlparse tqdm</code><br><br>在<code>./run/run_gpt.sh</code>中将启动时传入的模型参数改为engine2,即为<code>text-davinci-003</code>(要测gpt-3.5-turbo则将engine选为engine3)<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/8.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><br>挂梯子，如果是linux要手动配置代理,详情参考<a href>linux服务器clash教程</a></p>
-<h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>切换到目录<code>./llm</code>执行<code>sh ./run/run_gpt.sh</code>即可生成预测的sql语句。<br><br>执行<code>sh ./run/run_evaluation.sh</code>即可获得text-davinci-003模型 text-to-sql的EX准确率如下图所示。<br><br>text-davinci-003<br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/7.png" srcset="/img/loading.gif" lazyload alt="alt text"><br>获得gpt-3.5-turbo的EX准确率如下<br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/9.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
-<h1 id="对照"><a href="#对照" class="headerlink" title="对照"></a>对照</h1><p>与论文<code>Understanding the Effects of Noise in Text-to-SQL: An Examination of the BIRD-Bench Benchmark</code>中使用不同训练方法得到的准确率作对比。<br><br><img src="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/10.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><br>可以发现准确率比较接近。可以看出text-davinci-003在text-to-sql方面准确率更高。</p>
+                <h1 id="Docker-Learning"><a href="#Docker-Learning" class="headerlink" title="Docker-Learning"></a>Docker-Learning</h1><p>这篇文章记录了学习的Docker知识。</p>
+<h2 id="Docker有用小命令"><a href="#Docker有用小命令" class="headerlink" title="Docker有用小命令"></a>Docker有用小命令</h2><p><code>docker ps</code>列出运行中的进程<br><br><code>docker logs 容器ID</code>打印容器日志<br></p>
+<h2 id="Docker概念"><a href="#Docker概念" class="headerlink" title="Docker概念"></a>Docker概念</h2><ol>
+<li>Docker镜像：用于创建Docker容器的模板，可以理解为一个静态定义的操作系统。</li>
+<li>Docker容器：Docker镜像运行的一个实例。</li>
+<li>Docker客户端：与Docker守护进程通信。</li>
+<li>Docker Host：用来执行Docker守护进程和容器。</li>
+<li>Docker Registry：用来保存镜像，代码仓库</li>
+</ol>
+<h2 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h2><h3 id="Ubuntu安装"><a href="#Ubuntu安装" class="headerlink" title="Ubuntu安装"></a>Ubuntu安装</h3><p>使用官方脚本自动安装<br></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata">curl -fsSL https:<span class="hljs-comment">//test.docker.com -o test-docker.sh</span><br>sudo <span class="hljs-keyword">sh</span> <span class="hljs-keyword">test</span>-docker.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
+<h3 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h3><p>详情参考<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/windows-docker-install.html">Windows Docker安装</a></p>
+<h2 id="在Docker中运行应用程序"><a href="#在Docker中运行应用程序" class="headerlink" title="在Docker中运行应用程序"></a>在Docker中运行应用程序</h2><p>以hello world为例<br></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir">runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-variable">$ </span>docker run <span class="hljs-symbol">ubuntu:</span><span class="hljs-number">15.10</span> /bin/echo <span class="hljs-string">&quot;Hello world&quot;</span><br><span class="hljs-title class_">Hello</span> world<br></code></pre></td></tr></table></figure>
+<p>或者执行以下命令进入Docker容器<br></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir">runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-variable">$ </span>docker run -i -t <span class="hljs-symbol">ubuntu:</span><span class="hljs-number">15.10</span> /bin/bash<br>root<span class="hljs-variable">@0123ce188bd8</span><span class="hljs-symbol">:/</span><span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure>
+<p>使用<code>docker run -d</code>将容器挂在后台运行</p>
+<h2 id="容器使用"><a href="#容器使用" class="headerlink" title="容器使用"></a>容器使用</h2><p>载入镜像<br><br><code>docker pull ubuntu</code><br><br>查看所有容器<br><br><code>docker ps - a</code><br><br>启动一个已停止容器<br><br><code>docker start 容器ID</code><br><br>停止一个容器<br><br><code>docker stop 容器ID</code><br><br>重启容器<br><br><code> docker restart &lt;容器 ID&gt;</code><br><br>进入容器<br><br><code>docker exec -it &lt;容器ID&gt; /bin/bash</code><br><br>导出导入容器<br></p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">docker</span> ex<span class="hljs-keyword">port</span> 1e560fca3906 &gt; ubuntu.tar<br><span class="hljs-title">docker</span> <span class="hljs-keyword">import</span> - test/ubuntu:v1<br></code></pre></td></tr></table></figure>
+<p>删除容器<br><br><code>docker rm -f &lt;容器ID&gt;</code><br><br>清理掉所有处于终止状态的容器<br><br><code>docker container prune</code><br><br>运行一个web应用<br></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs elixir">runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-comment"># docker pull training/webapp  # 载入镜像</span><br>runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-comment"># docker run -d -P training/webapp python app.py</span><br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>-P将容器内部使用的网络端口映射到我们使用的主机上。</li>
+</ul>
 
                 
               </div>
@@ -336,7 +340,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
   
   
 
@@ -351,7 +355,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/BIRD/" class="print-no-link">#BIRD</a>
+        <a href="/tags/Docker/" class="print-no-link">#Docker</a>
       
     </div>
   
@@ -363,8 +367,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>BIRD数据集使用教程</div>
-      <div>http://example.com/2024/10/24/BIRD数据集使用教程/</div>
+      <div>Docker-Learning</div>
+      <div>http://example.com/2024/10/25/Docker-Learning/</div>
     </div>
     <div class="license-meta">
       
@@ -376,7 +380,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月24日</div>
+          <div>2024年10月25日</div>
         </div>
       
       
@@ -408,18 +412,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/10/25/Docker-Learning/" title="Docker-Learning">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Docker-Learning</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/24/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84Go%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="linux服务器上的Go环境搭建">
-                        <span class="hidden-mobile">linux服务器上的Go环境搭建</span>
+                      <a href="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="BIRD数据集使用教程">
+                        <span class="hidden-mobile">BIRD数据集使用教程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

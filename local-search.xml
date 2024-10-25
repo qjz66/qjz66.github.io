@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Docker-Learning</title>
+    <link href="/2024/10/25/Docker-Learning/"/>
+    <url>/2024/10/25/Docker-Learning/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Docker-Learning"><a href="#Docker-Learning" class="headerlink" title="Docker-Learning"></a>Docker-Learning</h1><p>这篇文章记录了学习的Docker知识。</p><h2 id="Docker有用小命令"><a href="#Docker有用小命令" class="headerlink" title="Docker有用小命令"></a>Docker有用小命令</h2><p><code>docker ps</code>列出运行中的进程<br><br><code>docker logs 容器ID</code>打印容器日志<br></p><h2 id="Docker概念"><a href="#Docker概念" class="headerlink" title="Docker概念"></a>Docker概念</h2><ol><li>Docker镜像：用于创建Docker容器的模板，可以理解为一个静态定义的操作系统。</li><li>Docker容器：Docker镜像运行的一个实例。</li><li>Docker客户端：与Docker守护进程通信。</li><li>Docker Host：用来执行Docker守护进程和容器。</li><li>Docker Registry：用来保存镜像，代码仓库</li></ol><h2 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h2><h3 id="Ubuntu安装"><a href="#Ubuntu安装" class="headerlink" title="Ubuntu安装"></a>Ubuntu安装</h3><p>使用官方脚本自动安装<br></p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata">curl -fsSL https:<span class="hljs-comment">//test.docker.com -o test-docker.sh</span><br>sudo <span class="hljs-keyword">sh</span> <span class="hljs-keyword">test</span>-docker.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure><h3 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h3><p>详情参考<a href="https://www.runoob.com/docker/windows-docker-install.html">Windows Docker安装</a></p><h2 id="在Docker中运行应用程序"><a href="#在Docker中运行应用程序" class="headerlink" title="在Docker中运行应用程序"></a>在Docker中运行应用程序</h2><p>以hello world为例<br></p><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir">runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-variable">$ </span>docker run <span class="hljs-symbol">ubuntu:</span><span class="hljs-number">15.10</span> /bin/echo <span class="hljs-string">&quot;Hello world&quot;</span><br><span class="hljs-title class_">Hello</span> world<br></code></pre></td></tr></table></figure><p>或者执行以下命令进入Docker容器<br></p><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir">runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-variable">$ </span>docker run -i -t <span class="hljs-symbol">ubuntu:</span><span class="hljs-number">15.10</span> /bin/bash<br>root<span class="hljs-variable">@0123ce188bd8</span><span class="hljs-symbol">:/</span><span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure><p>使用<code>docker run -d</code>将容器挂在后台运行</p><h2 id="容器使用"><a href="#容器使用" class="headerlink" title="容器使用"></a>容器使用</h2><p>载入镜像<br><br><code>docker pull ubuntu</code><br><br>查看所有容器<br><br><code>docker ps - a</code><br><br>启动一个已停止容器<br><br><code>docker start 容器ID</code><br><br>停止一个容器<br><br><code>docker stop 容器ID</code><br><br>重启容器<br><br><code> docker restart &lt;容器 ID&gt;</code><br><br>进入容器<br><br><code>docker exec -it &lt;容器ID&gt; /bin/bash</code><br><br>导出导入容器<br></p><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">docker</span> ex<span class="hljs-keyword">port</span> 1e560fca3906 &gt; ubuntu.tar<br><span class="hljs-title">docker</span> <span class="hljs-keyword">import</span> - test/ubuntu:v1<br></code></pre></td></tr></table></figure><p>删除容器<br><br><code>docker rm -f &lt;容器ID&gt;</code><br><br>清理掉所有处于终止状态的容器<br><br><code>docker container prune</code><br><br>运行一个web应用<br></p><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs elixir">runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-comment"># docker pull training/webapp  # 载入镜像</span><br>runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-comment"># docker run -d -P training/webapp python app.py</span><br><br></code></pre></td></tr></table></figure><ul><li>-P将容器内部使用的网络端口映射到我们使用的主机上。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>开发</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>BIRD数据集使用教程</title>
     <link href="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     <url>/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
