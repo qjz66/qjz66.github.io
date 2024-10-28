@@ -27,7 +27,7 @@
 <meta property="og:description" content="Docker-Learning这篇文章记录了学习的Docker知识。 Docker有用小命令docker ps列出运行中的进程docker logs 容器ID打印容器日志 Docker概念 Docker镜像：用于创建Docker容器的模板，可以理解为一个静态定义的操作系统。 Docker容器：Docker镜像运行的一个实例。 Docker客户端：与Docker守护进程通信。 Docker Host">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-25T03:04:15.000Z">
-<meta property="article:modified_time" content="2024-10-25T04:05:11.019Z">
+<meta property="article:modified_time" content="2024-10-28T07:58:50.361Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary_large_image">
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          339 字
+          665 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -322,6 +322,17 @@
 <ul>
 <li>-P将容器内部使用的网络端口映射到我们使用的主机上。</li>
 </ul>
+<h1 id="DockerFile构建容器"><a href="#DockerFile构建容器" class="headerlink" title="DockerFile构建容器"></a>DockerFile构建容器</h1><p>以下介绍如何使用DockerFile构建镜像</p>
+<h2 id="编写DockerFile"><a href="#编写DockerFile" class="headerlink" title="编写DockerFile"></a>编写DockerFile</h2><p>多阶段构建可以让最终的镜像大小变小<br></p>
+<h3 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-keyword">FROM</span> golang:1.19 AS builder<br><br><span class="hljs-comment"># 设置必要的环境变量</span><br>ENV <span class="hljs-attribute">GO111MODULE</span>=on \<br>    <span class="hljs-attribute">GOPROXY</span>=https://proxy.golang.org,direct \<br>    <span class="hljs-attribute">CGO_ENABLED</span>=0 \<br>    <span class="hljs-attribute">GOOS</span>=linux \<br>    <span class="hljs-attribute">GOARCH</span>=amd64<br><br><span class="hljs-comment"># 复制Go应用程序代码并构建CLI</span><br>COPY . /ToolCollection<br>WORKDIR /ToolCollection<br><span class="hljs-built_in">RUN</span> go build -o ./bin/cli ./cmd/cli/main.go<br></code></pre></td></tr></table></figure>
+<p>第一阶段构建Go环境，获得编译好的GO应用程序<br></p>
+<ol>
+<li>首先拉取golang:1.19，as builder是给镜像取名，方便后面引用</li>
+<li>设置Go环境变量</li>
+<li>将代码复制到容器中，制定工作目录，并且编译Go程序</li>
+</ol>
+<h3 id="第二阶段"><a href="#第二阶段" class="headerlink" title="第二阶段"></a>第二阶段</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># 第二阶段：创建包含CUDA和Python 3.8的最终镜像</span><br><span class="hljs-keyword">FROM</span> nvidia/cuda:<span class="hljs-number">11.8</span>.<span class="hljs-number">0</span>-devel-ubuntu20.<span class="hljs-number">04</span> <br><br><span class="hljs-comment"># 安装 Python 3.9 和 pip</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y python3.9 python3-pip</span><br><br><span class="hljs-comment"># 创建符号链接以便使用 python3 命令</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">ln</span> -s /usr/bin/python3.9 /usr/bin/python3</span><br><br><span class="hljs-comment"># 安装 PyTorch 和其他依赖</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip3 install --no-cache-dir \</span><br><span class="language-bash">    flet \</span><br><span class="language-bash">    torch==2.0.1+cu118 \</span><br><span class="language-bash">    torchvision==0.15.0+cu118 \</span><br><span class="language-bash">    torchaudio==2.0.2 \</span><br><span class="language-bash">    librosa \</span><br><span class="language-bash">    numpy \</span><br><span class="language-bash">    wave \</span><br><span class="language-bash">    -f https://download.pytorch.org/whl/torch_stable.html</span><br><br><span class="hljs-comment"># 复制Go应用程序二进制文件</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> --from=builder /ToolCollection /ToolCollection</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> --from=builder /ToolCollection/bin/cli /usr/local/bin/cli</span><br><br><span class="hljs-comment"># 设置工作目录</span><br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /ToolCollection</span><br><br><br><span class="hljs-comment"># 定义容器启动命令</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> [ <span class="hljs-string">&quot;cli&quot;</span> ]</span><br></code></pre></td></tr></table></figure>
+<p>该阶段从上一个阶段抽取构建好的应用程序，并且配置python、cuda环境，用以推理<br></p>
 
                 
               </div>
