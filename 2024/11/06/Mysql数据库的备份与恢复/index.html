@@ -19,22 +19,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Docker-Learning这篇文章记录了学习的Docker知识。 Docker有用小命令docker ps列出运行中的进程docker logs 容器ID打印容器日志 Docker概念 Docker镜像：用于创建Docker容器的模板，可以理解为一个静态定义的操作系统。 Docker容器：Docker镜像运行的一个实例。 Docker客户端：与Docker守护进程通信。 Docker Host">
+    <meta name="description" content="Mysql数据库的备份与恢复本篇文章介绍如何用DokcerFile构建容器数据库，并且在程序中使用该数据库。还介绍如何对mysql数据库进行备份与恢复。 DockerFile构建数据库容器本节介绍如何用DockerFile构建数据库容器。 配置my.cnfmy.cnf文件是数据库的配置文件。其中[mysqld]表示mysql服务端的配置。[client]表示mysql客户端的配置。 1234567">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker-Learning">
-<meta property="og:url" content="http://example.com/2024/10/25/Docker-Learning/index.html">
+<meta property="og:title" content="Mysql数据库的备份与恢复">
+<meta property="og:url" content="http://example.com/2024/11/06/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/index.html">
 <meta property="og:site_name" content="Zhoxe的博客">
-<meta property="og:description" content="Docker-Learning这篇文章记录了学习的Docker知识。 Docker有用小命令docker ps列出运行中的进程docker logs 容器ID打印容器日志 Docker概念 Docker镜像：用于创建Docker容器的模板，可以理解为一个静态定义的操作系统。 Docker容器：Docker镜像运行的一个实例。 Docker客户端：与Docker守护进程通信。 Docker Host">
+<meta property="og:description" content="Mysql数据库的备份与恢复本篇文章介绍如何用DokcerFile构建容器数据库，并且在程序中使用该数据库。还介绍如何对mysql数据库进行备份与恢复。 DockerFile构建数据库容器本节介绍如何用DockerFile构建数据库容器。 配置my.cnfmy.cnf文件是数据库的配置文件。其中[mysqld]表示mysql服务端的配置。[client]表示mysql客户端的配置。 1234567">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-25T03:04:15.000Z">
-<meta property="article:modified_time" content="2024-10-28T07:58:50.361Z">
+<meta property="og:image" content="http://example.com/2024/11/06/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/1.png">
+<meta property="article:published_time" content="2024-11-06T05:38:49.000Z">
+<meta property="article:modified_time" content="2024-11-06T11:03:30.814Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2024/11/06/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/1.png">
   
   
   
-  <title>Docker-Learning - Zhoxe的博客</title>
+  <title>Mysql数据库的备份与恢复 - Zhoxe的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Docker-Learning"></span>
+            <span id="subtitle" data-typed-text="Mysql数据库的备份与恢复"></span>
           
         </div>
 
@@ -224,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-25 11:04" pubdate>
-          2024年10月25日 上午
+        <time datetime="2024-11-06 13:38" pubdate>
+          2024年11月6日 下午
         </time>
       </span>
     
@@ -236,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          665 字
+          881 字
         
       </span>
     
@@ -247,7 +249,7 @@
         
         
         
-          6 分钟
+          8 分钟
         
       </span>
     
@@ -293,46 +295,29 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Docker-Learning</h1>
+            <h1 id="seo-header">Mysql数据库的备份与恢复</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Docker-Learning"><a href="#Docker-Learning" class="headerlink" title="Docker-Learning"></a>Docker-Learning</h1><p>这篇文章记录了学习的Docker知识。</p>
-<h2 id="Docker有用小命令"><a href="#Docker有用小命令" class="headerlink" title="Docker有用小命令"></a>Docker有用小命令</h2><p><code>docker ps</code>列出运行中的进程<br><br><code>docker logs 容器ID</code>打印容器日志<br></p>
-<h2 id="Docker概念"><a href="#Docker概念" class="headerlink" title="Docker概念"></a>Docker概念</h2><ol>
-<li>Docker镜像：用于创建Docker容器的模板，可以理解为一个静态定义的操作系统。</li>
-<li>Docker容器：Docker镜像运行的一个实例。</li>
-<li>Docker客户端：与Docker守护进程通信。</li>
-<li>Docker Host：用来执行Docker守护进程和容器。</li>
-<li>Docker Registry：用来保存镜像，代码仓库</li>
-</ol>
-<h2 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h2><h3 id="Ubuntu安装"><a href="#Ubuntu安装" class="headerlink" title="Ubuntu安装"></a>Ubuntu安装</h3><p>使用官方脚本自动安装<br></p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata">curl -fsSL https:<span class="hljs-comment">//test.docker.com -o test-docker.sh</span><br>sudo <span class="hljs-keyword">sh</span> <span class="hljs-keyword">test</span>-docker.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
-<h3 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h3><p>详情参考<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/windows-docker-install.html">Windows Docker安装</a></p>
-<h2 id="在Docker中运行应用程序"><a href="#在Docker中运行应用程序" class="headerlink" title="在Docker中运行应用程序"></a>在Docker中运行应用程序</h2><p>以hello world为例<br></p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir">runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-variable">$ </span>docker run <span class="hljs-symbol">ubuntu:</span><span class="hljs-number">15.10</span> /bin/echo <span class="hljs-string">&quot;Hello world&quot;</span><br><span class="hljs-title class_">Hello</span> world<br></code></pre></td></tr></table></figure>
-<p>或者执行以下命令进入Docker容器<br></p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir">runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-variable">$ </span>docker run -i -t <span class="hljs-symbol">ubuntu:</span><span class="hljs-number">15.10</span> /bin/bash<br>root<span class="hljs-variable">@0123ce188bd8</span><span class="hljs-symbol">:/</span><span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure>
-<p>使用<code>docker run -d</code>将容器挂在后台运行</p>
-<h2 id="容器使用"><a href="#容器使用" class="headerlink" title="容器使用"></a>容器使用</h2><p>载入镜像<br><br><code>docker pull ubuntu</code><br><br>查看所有容器<br><br><code>docker ps - a</code><br><br>启动一个已停止容器<br><br><code>docker start 容器ID</code><br><br>停止一个容器<br><br><code>docker stop 容器ID</code><br><br>重启容器<br><br><code> docker restart &lt;容器 ID&gt;</code><br><br>进入容器<br><br><code>docker exec -it &lt;容器ID&gt; /bin/bash</code><br><br>导出导入容器<br></p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">docker</span> ex<span class="hljs-keyword">port</span> 1e560fca3906 &gt; ubuntu.tar<br><span class="hljs-title">docker</span> <span class="hljs-keyword">import</span> - test/ubuntu:v1<br></code></pre></td></tr></table></figure>
-<p>删除容器<br><br><code>docker rm -f &lt;容器ID&gt;</code><br><br>清理掉所有处于终止状态的容器<br><br><code>docker container prune</code><br><br>运行一个web应用<br></p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs elixir">runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-comment"># docker pull training/webapp  # 载入镜像</span><br>runoob<span class="hljs-variable">@runoob</span><span class="hljs-symbol">:~</span><span class="hljs-comment"># docker run -d -P training/webapp python app.py</span><br><br></code></pre></td></tr></table></figure>
-<ul>
-<li>-P将容器内部使用的网络端口映射到我们使用的主机上。</li>
-</ul>
-<h1 id="DockerFile构建容器"><a href="#DockerFile构建容器" class="headerlink" title="DockerFile构建容器"></a>DockerFile构建容器</h1><p>以下介绍如何使用DockerFile构建镜像</p>
-<h2 id="编写DockerFile"><a href="#编写DockerFile" class="headerlink" title="编写DockerFile"></a>编写DockerFile</h2><p>多阶段构建可以让最终的镜像大小变小<br></p>
-<h3 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-keyword">FROM</span> golang:1.19 AS builder<br><br><span class="hljs-comment"># 设置必要的环境变量</span><br>ENV <span class="hljs-attribute">GO111MODULE</span>=on \<br>    <span class="hljs-attribute">GOPROXY</span>=https://proxy.golang.org,direct \<br>    <span class="hljs-attribute">CGO_ENABLED</span>=0 \<br>    <span class="hljs-attribute">GOOS</span>=linux \<br>    <span class="hljs-attribute">GOARCH</span>=amd64<br><br><span class="hljs-comment"># 复制Go应用程序代码并构建CLI</span><br>COPY . /ToolCollection<br>WORKDIR /ToolCollection<br><span class="hljs-built_in">RUN</span> go build -o ./bin/cli ./cmd/cli/main.go<br></code></pre></td></tr></table></figure>
-<p>第一阶段构建Go环境，获得编译好的GO应用程序<br></p>
-<ol>
-<li>首先拉取golang:1.19，as builder是给镜像取名，方便后面引用</li>
-<li>设置Go环境变量</li>
-<li>将代码复制到容器中，制定工作目录，并且编译Go程序</li>
-</ol>
-<h3 id="第二阶段"><a href="#第二阶段" class="headerlink" title="第二阶段"></a>第二阶段</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># 第二阶段：创建包含CUDA和Python 3.8的最终镜像</span><br><span class="hljs-keyword">FROM</span> nvidia/cuda:<span class="hljs-number">11.8</span>.<span class="hljs-number">0</span>-devel-ubuntu20.<span class="hljs-number">04</span> <br><br><span class="hljs-comment"># 安装 Python 3.9 和 pip</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y python3.9 python3-pip</span><br><br><span class="hljs-comment"># 创建符号链接以便使用 python3 命令</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">ln</span> -s /usr/bin/python3.9 /usr/bin/python3</span><br><br><span class="hljs-comment"># 安装 PyTorch 和其他依赖</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip3 install --no-cache-dir \</span><br><span class="language-bash">    flet \</span><br><span class="language-bash">    torch==2.0.1+cu118 \</span><br><span class="language-bash">    torchvision==0.15.0+cu118 \</span><br><span class="language-bash">    torchaudio==2.0.2 \</span><br><span class="language-bash">    librosa \</span><br><span class="language-bash">    numpy \</span><br><span class="language-bash">    wave \</span><br><span class="language-bash">    -f https://download.pytorch.org/whl/torch_stable.html</span><br><br><span class="hljs-comment"># 复制Go应用程序二进制文件</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> --from=builder /ToolCollection /ToolCollection</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> --from=builder /ToolCollection/bin/cli /usr/local/bin/cli</span><br><br><span class="hljs-comment"># 设置工作目录</span><br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /ToolCollection</span><br><br><br><span class="hljs-comment"># 定义容器启动命令</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> [ <span class="hljs-string">&quot;cli&quot;</span> ]</span><br></code></pre></td></tr></table></figure>
-<p>该阶段从上一个阶段抽取构建好的应用程序，并且配置python、cuda环境，用以推理<br></p>
+                <h1 id="Mysql数据库的备份与恢复"><a href="#Mysql数据库的备份与恢复" class="headerlink" title="Mysql数据库的备份与恢复"></a>Mysql数据库的备份与恢复</h1><p>本篇文章介绍如何用DokcerFile构建容器数据库，并且在程序中使用该数据库。还介绍如何对mysql数据库进行备份与恢复。</p>
+<h2 id="DockerFile构建数据库容器"><a href="#DockerFile构建数据库容器" class="headerlink" title="DockerFile构建数据库容器"></a>DockerFile构建数据库容器</h2><p>本节介绍如何用DockerFile构建数据库容器。</p>
+<h3 id="配置my-cnf"><a href="#配置my-cnf" class="headerlink" title="配置my.cnf"></a>配置my.cnf</h3><p>my.cnf文件是数据库的配置文件。<br><br>其中<code>[mysqld]</code>表示mysql服务端的配置。<code>[client]</code>表示mysql客户端的配置。<br></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[mysqld]</span><br><span class="hljs-comment"># 设置MySQL服务器的数据目录</span><br><span class="hljs-comment"># datadir=/var/lib/mysql</span><br><br><span class="hljs-comment"># 设置MySQL服务器监听的IP地址</span><br><span class="hljs-comment"># bind-address=127.0.0.1</span><br><br><span class="hljs-comment"># 设置MySQL服务器的端口号</span><br><span class="hljs-attr">port</span>=<span class="hljs-number">3306</span><br><br><span class="hljs-comment"># 设置MySQL服务器的字符集</span><br><span class="hljs-attr">character-set-server</span>=utf8<br><br><span class="hljs-comment"># 设置MySQL服务器的默认存储引擎</span><br><span class="hljs-attr">default-storage-engine</span>=InnoDB<br><br><span class="hljs-comment"># 设置MySQL服务器的最大连接数</span><br><span class="hljs-attr">max_connections</span>=<span class="hljs-number">100</span><br><br><span class="hljs-comment"># 设置MySQL服务器的查询缓存大小</span><br><span class="hljs-comment"># query_cache_size=64M</span><br><br><span class="hljs-section">[client]</span><br><span class="hljs-comment"># 设置MySQL客户端连接服务器时的默认字符集</span><br><span class="hljs-attr">default-character-set</span>=utf8<br><br></code></pre></td></tr></table></figure>
+<p>my.cnf配置详情参见<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/822935">my.cnf配置</a><br></p>
+<h3 id="配置init-sql"><a href="#配置init-sql" class="headerlink" title="配置init.sql"></a>配置init.sql</h3><p>init.sql用来初始化数据库。<br><br>实例代码如下<br></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span><br><span class="hljs-comment">/*!32312 IF NOT EXISTS*/</span><br>`<span class="hljs-number">123</span>`<br><span class="hljs-comment">/*!40100 DEFAULT CHARACTER SET utf8 */</span>;<br><br>USE `<span class="hljs-number">123</span>`;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">Navicat Premium Data Transfer</span><br><span class="hljs-comment">Source Server         : gin</span><br><span class="hljs-comment">Source Server Type    : MySQL</span><br><span class="hljs-comment">Source Server Version : 80031</span><br><span class="hljs-comment">Source Host           : localhost:3306</span><br><span class="hljs-comment">Source Schema         : 123</span><br><span class="hljs-comment">Target Server Type    : MySQL</span><br><span class="hljs-comment">Target Server Version : 80031</span><br><span class="hljs-comment">File Encoding         : 65001</span><br><span class="hljs-comment">Date: 26/03/2024 21:22:50</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-keyword">SET NAMES</span> utf8mb4;<br><br><span class="hljs-keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">-- ----------------------------</span><br><span class="hljs-comment">-- Table structure for tb_browse_pv</span><br><span class="hljs-comment">-- ----------------------------</span><br><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> `<span class="hljs-number">111</span>`;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `<span class="hljs-number">111</span>` (<br>    `id` <span class="hljs-type">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> AUTO_INCREMENT, `license_id` <span class="hljs-type">varchar</span>(<span class="hljs-number">256</span>) <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb3 <span class="hljs-keyword">COLLATE</span> utf8mb3_general_ci <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>, `<span class="hljs-type">date</span>` <span class="hljs-type">varchar</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>, `num` <span class="hljs-type">int</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span>, `created_at` <span class="hljs-type">timestamp</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>, `updated_at` <span class="hljs-type">timestamp</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>, <span class="hljs-keyword">PRIMARY KEY</span> (`id`)<br>) ENGINE = InnoDB AUTO_INCREMENT = <span class="hljs-number">165</span> <span class="hljs-keyword">DEFAULT</span> CHARSET = utf8mb3;<br></code></pre></td></tr></table></figure>
+<p><code>CREATE DATABASE</code>创建数据库。<br><code>USE</code>使用该数据库。<br><code>SET NAMES utf8mb4;</code>表示使用utf8mb4字符集。<br></p>
+<h3 id="编写DockerFile"><a href="#编写DockerFile" class="headerlink" title="编写DockerFile"></a>编写DockerFile</h3><p>编写DockerFile如下<br></p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> dockerproxy.cn/mysql:latest<br><br><span class="hljs-keyword">ENV</span> MYSQL_ROOT_PASSWORD=<span class="hljs-number">12345678</span><br><br><span class="hljs-keyword">COPY</span><span class="language-bash"> ./shell/mysql/my.cnf /etc/mysql/my.cnf</span><br><br><span class="hljs-keyword">COPY</span><span class="language-bash"> ./shell/mysql/init.sql /docker-entrypoint-initdb.d/</span><br></code></pre></td></tr></table></figure>
+<p><code>FROM dockerproxy.cn/mysql:latest</code>表示使用镜像dockerproxy.cn&#x2F;mysql:latest<br><br><code>ENV MYSQL_ROOT_PASSWORD=12345678</code>设置mysql密码为12345678<br><br><code>COPY ./shell/mysql/my.cnf /etc/mysql/my.cnf</code>将当前目录下的shell&#x2F;mysql&#x2F;my.cnf复制到容器的&#x2F;etc&#x2F;mysql&#x2F;my.cnf<br><br><code>COPY ./shell/mysql/init.sql /docker-entrypoint-initdb.d/</code>将init.sql复制到&#x2F;docker-entrypoint-initdb.d&#x2F;用来初始化数据库<br><br>现在我们已经可以构建mysql容器了，但是数据库一定是给应用程序使用的，所以我们要将mysql容器和程序放在一个network里。</p>
+<h3 id="构建network"><a href="#构建network" class="headerlink" title="构建network"></a>构建network</h3><p>使用如下命令构建network<br><br><code>docker network create my_network</code></p>
+<h3 id="构建容器"><a href="#构建容器" class="headerlink" title="构建容器"></a>构建容器</h3><p>首先使用DockerFile构建镜像<br><br>命令如下<br><br><code>dokcer build -t [镜像名:tag] -f /path/to/DockerFile .</code><br><br>-t是指定构建的镜像的名称和tag，-f指定DokcerFile的路径，.则是指定当前目录为构建的上下文。<br><br>构建完镜像就要构建容器了<br><br>使用如下命令构建容器<br><br><code>docker run -d -p 3307:3306 --name my_mysql --network=my_network [使用的镜像名:tag]</code><br><br><code>-d</code>是指定容器在后台运行<br><br><code>-p</code>是指定端口映射，比如<code>-p 3307:3306</code>指将容器的3306端口映射到本地的3307端口，可以通过访问本地的3307端口获得mysql服务。<br><br><code>--name</code>指定容器名<br><br><code>--network</code>指定网络名<br><br>容器就run起来了，可以使用命令查看容器是否运行起来了<br><br><code>docker ps</code><br><br>结果应该是有如下输出。<br><br><img src="/2024/11/06/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/1.png" srcset="/img/loading.gif" lazyload alt="image1"><br></p>
+<h2 id="mysql备份与恢复"><a href="#mysql备份与恢复" class="headerlink" title="mysql备份与恢复"></a>mysql备份与恢复</h2><p>在应用程序中如果数据库不小心被删除了或损坏会让我们前功尽弃，所以提前备份显得十分重要！</p>
+<h3 id="mysql备份"><a href="#mysql备份" class="headerlink" title="mysql备份"></a>mysql备份</h3><p>要备份容器中的数据，可以使用如下命令<br></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#进入容器</span><br>sudo docker exec -it my_mysql <span class="hljs-regexp">/bin/</span>bash<br><br><span class="hljs-comment">#生成备份文件</span><br><span class="hljs-comment">#-uroot指以root用户登录 -p密码登录 +%F指定日期</span><br>mysqldump -uroot -p --all-databases &gt; emp_`date +%F`.sql<br><br><span class="hljs-comment">#退出容器</span><br><span class="hljs-keyword">exit</span>或者ctrl + D<br><br><span class="hljs-comment">#将备份文件复制到本地文件夹中</span><br>sudo docker cp my_mysql:emp_.sql <span class="hljs-regexp">/var/</span>backup/<br></code></pre></td></tr></table></figure>
+<h3 id="mysql恢复"><a href="#mysql恢复" class="headerlink" title="mysql恢复"></a>mysql恢复</h3><h4 id="容器中还原"><a href="#容器中还原" class="headerlink" title="容器中还原"></a>容器中还原</h4><p>将生成的.sql文件复制到init.sql中，重新构建mysql镜像即可。</p>
+<h4 id="非容器还原"><a href="#非容器还原" class="headerlink" title="非容器还原"></a>非容器还原</h4><p>进入直接用<code>source /path/to/.sql</code>即可。</p>
 
                 
               </div>
@@ -351,7 +336,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
   
   
 
@@ -366,7 +351,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Docker/" class="print-no-link">#Docker</a>
+        <a href="/tags/mysql/" class="print-no-link">#mysql</a>
       
     </div>
   
@@ -378,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Docker-Learning</div>
-      <div>http://example.com/2024/10/25/Docker-Learning/</div>
+      <div>Mysql数据库的备份与恢复</div>
+      <div>http://example.com/2024/11/06/Mysql数据库的备份与恢复/</div>
     </div>
     <div class="license-meta">
       
@@ -391,7 +376,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月25日</div>
+          <div>2024年11月6日</div>
         </div>
       
       
@@ -423,18 +408,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/06/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Mysql数据库的备份与恢复">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Mysql数据库的备份与恢复</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/24/BIRD%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="BIRD数据集使用教程">
-                        <span class="hidden-mobile">BIRD数据集使用教程</span>
+                      <a href="/2024/10/25/Docker-Learning/" title="Docker-Learning">
+                        <span class="hidden-mobile">Docker-Learning</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
