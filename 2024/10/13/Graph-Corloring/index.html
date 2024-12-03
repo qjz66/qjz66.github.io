@@ -19,18 +19,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Graph-Corloringproblem formulation给定一个图G（V,E），将G划分为K个子集，每个子集中的节点都互不邻接。">
+    <meta name="description" content="Graph-Corloringtabu search禁忌搜索是一种局部搜索。核心是禁忌表，如果节点v1.color-&gt;color1，则将(v1,v1.corlor)加入禁忌表，在一定的迭代次数内不允许v1-&gt;v1.color。这样可以防止循环移动。 主要流程 初始化邻接矩阵，生成随机解，并且初始化目标函数f(conflict的数量)和最小f best_f。 进入循环，循环结束的条件为目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Graph-Corloring">
 <meta property="og:url" content="http://example.com/2024/10/13/Graph-Corloring/index.html">
 <meta property="og:site_name" content="Zhoxe的博客">
-<meta property="og:description" content="Graph-Corloringproblem formulation给定一个图G（V,E），将G划分为K个子集，每个子集中的节点都互不邻接。">
+<meta property="og:description" content="Graph-Corloringtabu search禁忌搜索是一种局部搜索。核心是禁忌表，如果节点v1.color-&gt;color1，则将(v1,v1.corlor)加入禁忌表，在一定的迭代次数内不允许v1-&gt;v1.color。这样可以防止循环移动。 主要流程 初始化邻接矩阵，生成随机解，并且初始化目标函数f(conflict的数量)和最小f best_f。 进入循环，循环结束的条件为目">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/10/13/Graph-Corloring/image.png">
+<meta property="og:image" content="http://example.com/2024/10/13/Graph-Corloring/image-1.png">
+<meta property="og:image" content="http://example.com/2024/10/13/Graph-Corloring/image-2.png">
+<meta property="og:image" content="http://example.com/2024/10/13/Graph-Corloring/image-3.png">
 <meta property="article:published_time" content="2024-10-12T16:04:39.000Z">
-<meta property="article:modified_time" content="2024-10-13T02:00:48.669Z">
+<meta property="article:modified_time" content="2024-12-03T07:27:07.193Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="图论">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2024/10/13/Graph-Corloring/image.png">
   
   
   
@@ -236,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          30 字
+          613 字
         
       </span>
     
@@ -247,7 +252,7 @@
         
         
         
-          1 分钟
+          6 分钟
         
       </span>
     
@@ -298,8 +303,37 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Graph-Corloring"><a href="#Graph-Corloring" class="headerlink" title="Graph-Corloring"></a>Graph-Corloring</h1><h2 id="problem-formulation"><a href="#problem-formulation" class="headerlink" title="problem formulation"></a>problem formulation</h2><p>给定一个图G（V,E），将G划分为K个子集，每个子集中的节点都互不邻接。</p>
-<h2 id><a href="#" class="headerlink" title></a></h2>
+                <h1 id="Graph-Corloring"><a href="#Graph-Corloring" class="headerlink" title="Graph-Corloring"></a>Graph-Corloring</h1><h2 id="tabu-search"><a href="#tabu-search" class="headerlink" title="tabu search"></a>tabu search</h2><p>禁忌搜索是一种局部搜索。核心是禁忌表，如果节点v1.color-&gt;color1，则将(v1,v1.corlor)加入禁忌表，在一定的迭代次数内不允许v1-&gt;v1.color。这样可以防止循环移动。</p>
+<h3 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h3><ol>
+<li>初始化邻接矩阵，生成随机解，并且初始化目标函数f(conflict的数量)和最小f best_f。</li>
+<li>进入循环，循环结束的条件为目标函数f&#x3D;0&#x2F;迭代次数大于最大迭代次数&#x2F;求解时间大于最大求解时间。</li>
+<li>在每一次循环中，寻找一个最好的移动，该移动不一定使得f变小。</li>
+<li>寻找移动方法：遍历每一个节点，获得该节点的所有邻接点的颜色数num_adj_color和该节点的conflict数量，通过计算num_adj_color-conflict获得移动的差值delt。</li>
+<li>若当前tmp_delt小于之前的delt且该移动不在禁忌表中，则可以将该移动加入移动集合，更新delt值。特别注意当f+tmp_delt&lt; best_f时，可以无视禁忌表。</li>
+<li>移动</li>
+<li>回到step 2.<br>流程如下图所示。<br><br><img src="/2024/10/13/Graph-Corloring/image.png" srcset="/img/loading.gif" lazyload alt="alt text"></li>
+</ol>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><p>HEAD是基于HEA的改进版本。HEA使用了禁忌搜索和Greedy Partition Crossover (GPX)。</p>
+<h3 id="Greedy-Partition-Crossover-GPX"><a href="#Greedy-Partition-Crossover-GPX" class="headerlink" title="Greedy Partition Crossover (GPX)"></a>Greedy Partition Crossover (GPX)</h3><p>种群中有两个个体p1、p2,（对应着色的两种解）。该算法有两个特点。</p>
+<ol>
+<li>是将节点划分到颜色中</li>
+<li>当前最大的color class要被传递到child color class中。</li>
+</ol>
+<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><p>下面以十个节点，三种颜色为例，要求解一个划分。<br><br>输入是两个解p1、p2。解p是将节点划分到color class的一种方法，如下图所示。<br><br><img src="/2024/10/13/Graph-Corloring/image-1.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><br>流程如下图所示。<br><br><img src="/2024/10/13/Graph-Corloring/image-2.png" srcset="/img/loading.gif" lazyload alt="alt text"><br></p>
+<ol>
+<li>将最大的color class划分到child。在第一步中p1的DEFG和p2的CDEG一样大，所以随机选择了DEFG划分到child中。</li>
+<li>第二步随机选择了p2的BHJ</li>
+<li>第三步选择了p1的AC</li>
+<li>第k+1步将p1、p2中仍未划分的节点随机加入一个color class中</li>
+</ol>
+<h3 id="HEAD主要流程"><a href="#HEAD主要流程" class="headerlink" title="HEAD主要流程"></a>HEAD主要流程</h3><ol>
+<li>Init()获取初始的解p1、p2、每个循环的最佳解elite1，上个循环最佳解elite2，当前最佳解best。</li>
+<li>进入循环，f(best)&#x3D;0或p1&#x3D;p2时结束循环。</li>
+<li>分别用GPX(p1,p2)和GPX(p2,p1)生成c1 c2，再将c1,c2作为输入，调用禁忌搜索生成c1 c2的较优解，将解替换p1、p2.</li>
+<li>将全局最优解保存到best，将cycle内最优解保存到elite1。</li>
+<li>当generation数到达cycle的整数倍，将p1替换为elite2，再将elite2替换为elite1<br>流程如下所示。<br><br><img src="/2024/10/13/Graph-Corloring/image-3.png" srcset="/img/loading.gif" lazyload alt="alt text"></li>
+</ol>
+
                 
               </div>
             
